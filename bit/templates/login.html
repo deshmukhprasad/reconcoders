@@ -5,136 +5,164 @@
 <head>
 <meta name="viewport" content="width=device-width,intitial-scale=1">
 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 
-
-<style>
-#user{
-    position:relative;
-    left: 400px;
-    top: 105px;
+<style> body {
+    font-family: "Lato", sans-serif;
 }
 
-#pass{
-    position:relative;
-    left: 400px;
-    top: 55px;
+
+
+.main-head{
+    height: 150px;
+    background: #FFF;
+
 }
 
-body{font-family:Arial,Helvetica,sans-serif;}
-/* Bordered form */
-form {
-  border: 3px solid #f1f1f1;
+.sidenav {
+    height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
 }
 
-/* Full-width inputs */
 
-input[type=text]{
-  position: relative;
-  left: 490px;
-  top: 50px;
-  width: 30%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+.main {
+    padding: 0px 10px;
 }
 
-input[type=password]{
-  position: relative;
-  left: 490px;
-  top: 0px;
-  width: 30%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
 }
 
-/* Set a style for all buttons */
-button {
-  background-color: #4CAF50;
-  position:relative;
-  top:60px;
-  left: 112px;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 30%;
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+
+    .register-form{
+        margin-top: 10%;
+    }
 }
 
-/* Add a hover effect for buttons */
-button:hover {
-  opacity: 0.8;
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 40%;
+    }
+
+    .sidenav{
+        width: 50%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .login-form{
+        margin-top: 50%;
+        margin-left: 50%;
+    }
+
+    .register-form{
+        margin-top: 20%;
+    }
 }
 
-/* Extra style for the cancel button (red) */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
+
+.login-main-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
 }
 
-/* Center the avatar image inside this container */
-.imgcontainer {
+.login-main-text h2{
+    font-weight: 300;
+}
+#fontp{
+font-size:40px;
+}
+#fontu{
+font-size:40px;
+}
+
+#btn
+{
+padding: 10px 40px;
   text-align: center;
-  margin: 24px 0 12px 0;
+  font-size: 26px;
+}
+#foru{
+border: 3px solid #555;
+width: 350px;
+height:50px;
+padding:10px;
 }
 
-/* Avatar image */
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
+#btncharts
+{
+margin-top:20px;
+margin-left:60px;
+padding: 10px 40px;
+  text-align: center;
+  font-size: 46px;
 }
 
-/* Add padding to containers */
-.container {
-  padding: 16px;
+#btnmaps
+{
+margin-top:30px;
+margin-left:60px;
+padding: 10px 40px;
+  text-align: center;
+  font-size: 46px;
 }
 
-/* The "Forgot password" text */
-span.psw {
-  float: right;
-  padding-top: 16px;
+#forp{
+border: 3px solid #555;
+width: 350px;
+height:50px;
+padding:10px;
+}
+#anal{
+margin-top:200px;
+margin-left:60px;
+font-size:80px;
+font-color:#ffffff
 }
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-  .cancelbtn {
-    width: 100%;
-  }
-}
-</style>
 
-<body>
-<h2>Login Form</h2>
-  <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}</style>
 
-  <div class="container">
-    <p id="user" ><b>Username</b></p>
-    <form method="post">
-      {% csrf_token %}
-    <input type="text" placeholder="Enter Username" aria-label="Search" name="username" required>
-    <p id=pass><b>Password</b></p>
-    <input type="password" placeholder="Enter Password" aria-label="Search" name="password" required>
-     <button type="submit">Login</button>
-    </form>
+<body style="background-color:#4dd2ff;">
+<div class="sidenav" style="background-color:#001a1a;">
+                     <p id="anal" style="font-color:#fff;">Analysis</p>
 
-      <a href="doctor">Create a new account</a>
-
-
-  </div>
-
+            <a type="button" class="btn btn-danger" href="{% url 'chart1'%}" id="btncharts">Charts</a>
+           <br>
+  <a type="button" class="btn btn-danger" href="{% url 'default'%}" id="btnmaps">Maps</a>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form method="post">
+                  <div class="form-group">
+                     <label id="fontu">User Name</label>
+                        {% csrf_token %}
+                     <input type="text" class="form-control" placeholder="User Name" name="username" id="foru" required>
+                  </div>
+                  <div class="form-group">
+                     <label id="fontp">Password</label>
+                     <input type="password" class="form-control" placeholder="Password" id="forp" name="password" required>
+                  </div>
+                  <button type="submit" class="btn btn-black" id="btn">Login</button>
+               </form>
+            </div>
+         </div>
+      </div>
 </body>
-</html>
 {% endblock %}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
 <meta charset='utf-8' />
 <title>Add a geocoder</title>
@@ -19,13 +19,66 @@ body { margin:0; padding:0; }
 }
 
 </style>
+<style>
+#fit {
+display: block;
+position: relative;
+margin: 0px auto;
+width: 20%;
+height: 40px;
+padding: 10px;
+border: none;
+border-radius: 3px;
+font-size: 12px;
+text-align: center;
+color: #fff;
+background: #ee8a65;
+}
+
+#f {
+display: block;
+position: relative;
+margin: 0px auto;
+width: 20%;
+height: 40px;
+padding: 10px;
+border: none;
+border-radius: 3px;
+font-size: 12px;
+text-align: center;
+color: #fff;
+background: #ee8a65;
+}
+</style>
+
 </head>
 <body> 
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.6/mapbox-gl-geocoder.min.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.6/mapbox-gl-geocoder.css' type='text/css' />
+
 <div id='map'></div>
+<br>
 
+<form method="post">
+  {% csrf_token %}
+  <input type="hidden" name="p" id='opt' value="abc">
+ <select name = "patient" id="fit" onchange="sele(this.value)">
+   <option>select</option>
+{% for element in dis %}
+  <option  value={{element}} name='options' id='val'>{{ element }}</option>
+{% endfor %}
+</select>
 
+<script>
+function sele(va){
+  var v=va
+  document.getElementById("opt").value = v;
+  console.log(document.getElementById("opt").value);
+  console.log(va)
+}
+</script>
+<button type="submit" id="f">Change</button>
+</form>
 
 <script>
 mapboxgl.accessToken = 'pk.eyJ1Ijoib21rYXIyMSIsImEiOiJjanRxc3hoamcwZDNtNGRxZGNnaXF2ZHU3In0.Ovq0lb6DSdnLkIMMb32UPA';
@@ -35,8 +88,8 @@ var co = [{{ co }}]
 var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/streets-v11',
-center: [-79.4512, 43.6568],
-zoom: 13
+center: [ 78.9629,20.5937],
+zoom: 4
 });
  
 map.addControl(new MapboxGeocoder({
