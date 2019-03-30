@@ -39,4 +39,9 @@ class Disease(models.Model):		#model for diseases
 	def __str__(self):
 		return self.disease_possible
 
+class BloodReport(models.Model): 
+	patient_name = models.CharField(max_length=200)
+	doctor_name = models.CharField(max_length = 200) 
+	date = models.DateField()
+	Report_Img = models.ImageField(upload_to='images/') 
 

@@ -1,10 +1,12 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
-from bit.forms import Loginform, Diseaseform,  Patientform, Doctorform
+from bit.forms import Loginform, Diseaseform,  Patientform, Doctorform, Bloodform
 from .geo import foo
-from bit.models import Doctor, Disease, Patient
+from bit.models import Doctor, Disease, Patient, BloodReport
 from .dp import chart1
 from .dp import chart2
+from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def login(request):
@@ -159,3 +161,25 @@ def home3(request):
 		return render(request,'index3.html',{'add':adder,'q':q,'dis':dis,'ye':ye})
 	return render(request,'index3.html',{'dis':dis,'ye':ye})
 
+def blood(request): 
+    if request.method == 'POST': 
+        form = Bloodform(request.POST, request.FILES) 
+  
+        if form.is_valid(): 
+            form.save() 
+            return Redirect('success') 
+    else: 
+        form = Bloodform() 
+    return render(request, 'blood.html', {'form' : form}) 
+  
+  
+def success(request): 
+    return HttpResponse('successfuly uploaded') 
+
+def display_hotel_images(request): 
+  
+    if request.method == 'GET': 
+  
+        # getting all the objects of hotel. 
+        Hotels = Hotel.objects.all()  
+        return render(request, 'display_hotel_images.html', {'hotel_images' : Hotels}) 
