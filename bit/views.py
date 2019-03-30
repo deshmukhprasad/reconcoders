@@ -103,6 +103,8 @@ def default_map(request):
     dis=[]
     for i in range(len(a)):
         dis.append(a[i].disease_possible)
+
+    dis=list(set(dis))
     if(request.method=='POST'):
         for i in a:
             #s1=a.date
@@ -113,10 +115,12 @@ def default_map(request):
             if  y==y1:
                 if m==m1:
                     if sd==i.disease_possible:
-                        doc=i.doctor
-                        f=Doctor.objects.filter(doctor_name=doc)
-                        if f[0].doctor_address not in add:
-                            add.append(f[0].doctor_address)
+                    	print('ghusla')
+                    	pat=i.patient
+                    	print(pat)
+                    	k=Patient.objects.filter(patient_name=pat)
+                    	add.append(k[0].patient_address)
+
         co=foo(add)
         return render(request, 'default.html',{ 'mapbox_access_token': mapbox_access_token,'co':co,'dis':dis})
     return render(request, 'default.html', {'mapbox_access_token': mapbox_access_token,'dis':dis})
