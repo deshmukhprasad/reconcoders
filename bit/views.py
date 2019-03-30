@@ -1,10 +1,12 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
-from .geo import foo, months
-from bit.forms import Loginform, Diseaseform,  Patientform, Doctorform
-from bit.models import Doctor, Disease, Patient
+from bit.forms import Loginform, Diseaseform,  Patientform, Doctorform, Bloodform
+from .geo import foo
+from bit.models import Doctor, Disease, Patient, BloodReport
 from .dp import chart1
 from .dp import chart2
+from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def login(request):
@@ -101,6 +103,8 @@ def default_map(request):
     dis=[]
     for i in range(len(a)):
         dis.append(a[i].disease_possible)
+
+    dis=list(set(dis))
     if(request.method=='POST'):
         for i in a:
             #s1=a.date
@@ -111,10 +115,12 @@ def default_map(request):
             if  y==y1:
                 if m==m1:
                     if sd==i.disease_possible:
-                        doc=i.doctor
-                        f=Doctor.objects.filter(doctor_name=doc)
-                        if f[0].doctor_address not in add:
-                            add.append(f[0].doctor_address)
+                    	print('ghusla')
+                    	pat=i.patient
+                    	print(pat)
+                    	k=Patient.objects.filter(patient_name=pat)
+                    	add.append(k[0].patient_address)
+
         co=foo(add)
         return render(request, 'default.html',{ 'mapbox_access_token': mapbox_access_token,'co':co,'dis':dis})
     return render(request, 'default.html', {'mapbox_access_token': mapbox_access_token,'dis':dis})
@@ -187,5 +193,28 @@ def home3(request):
         return render(request,'index3.html',{'add':adder,'q':q,'dis':dis,'ye':ye})
     return render(request,'index3.html',{'dis':dis,'ye':ye})
 
+
 def home(request):
     return render(request,"charts.html",{})
+def blood(request): 
+    if request.method == 'POST': 
+        form = Bloodform(request.POST, request.FILES) 
+  
+        if form.is_valid(): 
+            form.save() 
+            return Redirect('success') 
+    else: 
+        form = Bloodform() 
+    return render(request, 'blood.html', {'form' : form}) 
+  
+  
+def success(request): 
+    return HttpResponse('successfuly uploaded') 
+
+def display_hotel_images(request): 
+  
+    if request.method == 'GET': 
+  
+        # getting all the objects of hotel. 
+        Hotels = Hotel.objects.all()  
+        return render(request, 'display_hotel_images.html', {'hotel_images' : Hotels}) 

@@ -16,7 +16,7 @@ def chart1():
 			g1=g.split()
 			g2=g1[0].split('-')
 			j=int(g2[1])
-			zeros[z][j]+=1
+			zeros[z][j-1]+=1
 		z+=1
 	return(zeros,c)
 
