@@ -194,28 +194,24 @@ span.psw {
 }
 </style>
 
-<body>
+<body style="background-color:#001a1a">
 <h2>Create Account Form</h2>
- 
-  <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
 
  <form action= "{% url 'patient' %}" method="POST">{% csrf_token %}
-  <div class="container">
-    <p id="name" ><b>Name</b></p>
+  <div class="container" style="background-color:#4dd2ff;">
+    <p id="name" style="font-size:30px;"><b>Name</b></p>
 
     <input type="name" placeholder="Enter Username" name ="patient_name" required>
 
-    <p id=address><b>Address</b></p>
-    <input type="address" placeholder="Enter Address" name="patient_address" required>
+    <p id=address style="font-size:30px;"><b>Address</b></p>
+    <input type="address" placeholder="Enter Address" name="patient_address" required >
 
 
 
-    <p id=pnumber><b>Phone Number</b></p>
+    <p id=pnumber style="font-size:30px;"><b>Phone Number</b></p>
     <input type="phone_number" placeholder="Enter phone number" name="patient_number" required>
 
-    <p id=gender1><b>Gender</b></p>
+    <p id=gender1 style="font-size:30px;"><b>Gender</b></p>
 
     <div class="gender">
       <input type="radio" name="patient_gender" value="M" checked>Male
@@ -224,16 +220,16 @@ span.psw {
     </div>
 
 
-    <p id=bday><b>Birthday</b></p>
+    <p id=bday style="font-size:30px;"><b>Birthday</b></p>
 
     <div class="birthday">
     <input type="date" name="bdate">
     </div>
 
-    <p id="username" ><b>Username</b></p>
+    <p id="username" style="font-size:30px;"><b>Username</b></p>
     <input type="uname" placeholder="Enter Username" name ="patient_username" required>
 
-    <p id="password" ><b>Password</b></p>
+    <p id="password" style="font-size:30px;"><b>Password</b></p>
     <input type="pword" placeholder="Enter Password" name ="patient_pass" required>
 
     <button type="submit">Create Account</button>

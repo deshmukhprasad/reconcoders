@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charts</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<style>
+    #btn1{
+    margin-top:400px;
+margin-left:230px;
+padding: 10px 40px;
+  text-align: center;
+  font-size: 46px;
+    }
+
+        #btn2{
+    margin-top:400px;
+margin-left:60px;
+padding: 10px 40px;
+  text-align: center;
+  font-size: 46px;
+    }
+
+        #btn3{
+    margin-top:400px;
+margin-left:60px;
+padding: 10px 40px;
+  text-align: center;
+  font-size: 46px;
+    }
+</style>
+<body style="background-color:#4dd2ff;">
+<div class="card" style="width:1400px;height:750px;margin-top:30px;margin-left:120px;">
+  <div class="card-body" style="background-color:#001a1a;">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-subtitle mb-2 text-muted" style="font-size:60px;font-color:#fff;">Intro about charts</p>
+    <a type="button" class="btn btn-danger" href="{% url 'chart1'%}" id="btn1">Chart1</a>
+    <a type="button" class="btn btn-danger" href="{% url 'chart2'%}" id="btn2">Chart2</a>
+      <a type="button" class="btn btn-danger" href="{% url 'chart3'%}" id="btn3">Chart3</a>
+  </div>
+</div>
+</body>
+</html>
