@@ -187,3 +187,5 @@ def home3(request):
         return render(request,'index3.html',{'add':adder,'q':q,'dis':dis,'ye':ye})
     return render(request,'index3.html',{'dis':dis,'ye':ye})
 
+def home(request):
+    return render(request,"charts.html",{})
