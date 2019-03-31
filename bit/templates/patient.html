@@ -195,23 +195,23 @@ span.psw {
 </style>
 
 <body style="background-color:#001a1a">
-<h2>Create Account Form</h2>
+<p style = "font-size:40px;">Create Account Form</p>
 
  <form action= "{% url 'patient' %}" method="POST">{% csrf_token %}
   <div class="container" style="background-color:#4dd2ff;">
-    <p id="name" style="font-size:30px;"><b>Name</b></p>
+    <p id="name" style="font-size:35px;top:135px" ><b>Name:</b></p>
 
     <input type="name" placeholder="Enter Username" name ="patient_name" required>
 
-    <p id=address style="font-size:30px;"><b>Address</b></p>
+    <p id=address style="font-size:35px;top:90px"><b>Address:</b></p>
     <input type="address" placeholder="Enter Address" name="patient_address" required >
 
 
 
-    <p id=pnumber style="font-size:30px;"><b>Phone Number</b></p>
-    <input type="phone_number" placeholder="Enter phone number" name="patient_number" required>
+    <p id=pnumber style="font-size:35px;top:34px"><b>Phone Number: </b></p>
+    <input type="phone_number" placeholder="Enter phone number" name="patient_number" style="margin-left:110px;" required>
 
-    <p id=gender1 style="font-size:30px;"><b>Gender</b></p>
+    <p id=gender1 style="font-size:35px;top:-20px"><b>Gender:</b></p>
 
     <div class="gender">
       <input type="radio" name="patient_gender" value="M" checked>Male
@@ -220,17 +220,17 @@ span.psw {
     </div>
 
 
-    <p id=bday style="font-size:30px;"><b>Birthday</b></p>
+    <p id=bday style="font-size:35px;top:-55px"><b>Birthday:</b></p>
 
     <div class="birthday">
     <input type="date" name="bdate">
     </div>
 
-    <p id="username" style="font-size:30px;"><b>Username</b></p>
-    <input type="uname" placeholder="Enter Username" name ="patient_username" required>
+    <p id="username" style="font-size:35px;top:-75px"><b>Username:</b></p>
+    <input type="uname" placeholder="Enter Username" name ="patient_username" style="margin-left:65px;" required>
 
-    <p id="password" style="font-size:30px;"><b>Password</b></p>
-    <input type="pword" placeholder="Enter Password" name ="patient_pass" required>
+    <p id="password" style="font-size:35px; top:-115px;"> <b>Password:</b></p>
+    <input type="pword" placeholder="Enter Password" name ="patient_pass" style="margin-left:65px;" required>
 
     <button type="submit">Create Account</button>
 

@@ -13,11 +13,13 @@ urlpatterns = [
     path('doctordash/', views.doctordash, name='doctordash'),
     path('disease/', views.disease, name='disease'),
     path('map/', views.default_map, name="default"),
-    path('chart1/', views.home1, name='home'),
-    path('chart2/', views.home2, name='home'),
-    path('chart3/', views.home3, name='home'),
+    path('chart/', views.home, name='chart'),
+    path('chart1/', views.home1, name='chart1'),
+    path('chart2/', views.home2, name='chart2'),
+    path('chart3/', views.home3, name='chart3'),
     path('blood/', views.blood, name = 'blood'), 
-    path('success', views.success, name = 'success'), 
+    path('success', views.success, name = 'success'),
+    path('profile/', views.patientprofile, name='profile'),
     path('hotel_images', views.display_hotel_images, name = 'hotel_images'),
 ]
 
