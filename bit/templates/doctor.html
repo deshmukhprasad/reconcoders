@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,12 +23,12 @@
 #gender1{
   position: relative;
   left: 330px;
-  top:-100px;
+  top:-50px;
 }
 
 #bday{
   position: relative;
-  top: -110px;
+  top: -80px;
   left: 330px;
 }
 
@@ -36,22 +37,17 @@
   left:330px;
 }
 
-#qualification{
-  position:relative;
-  left:330px;
-  top:-50px;
-}
 
 #username{
   position:relative;
   left:330px;
-  top: -125px;
+  top: -105px;
 }
 
 #password{
   position:relative;
   left:330px;
-  top: -165px;
+  top: -145px;
 }
 
 body{font-family:Arial,Helvetica,sans-serif;}
@@ -98,22 +94,11 @@ input[type=phone_number]{
   box-sizing: border-box;
 }
 
-input[type=qualific]{
-  position: relative;
-  left: 490px;
-  top: -105px;
-  width: 30%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
 
 input[type=uname]{
   position: relative;
   left: 490px;
-  top: -180px;
+  top: -160px;
   width: 30%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -125,7 +110,7 @@ input[type=uname]{
 input[type=pword]{
   position: relative;
   left: 490px;
-  top: -220px;
+  top: -200px;
   width: 30%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -141,7 +126,7 @@ input[type=pword]{
 button {
   background-color: #4CAF50;
   position:relative;
-  top:-150px;
+  top:-140px;
   left: -60px;
   color: white;
   padding: 14px 20px;
@@ -182,13 +167,13 @@ img.avatar {
 
 .gender{
   position: relative;
-  top: -135px;
+  top: -85px;
   left: 490px;
 }
 
 .birthday{
   position: relative;
-  top: -150px;
+  top: -120px;
   left: 490px;
 }
 
@@ -210,28 +195,28 @@ span.psw {
 }
 </style>
 
-<body>
-<h2>Create Account Form</h2>
+<body style="background-color:#001a1a">
+<p style = "font-size:40px;">Create Account Form</p>
+
+ <form action= "{% url 'doctor' %}" method="POST">{% csrf_token %}
+  <div class="container" style="background-color:#4dd2ff;">
+    <p id="name" style="font-size:35px;top:135px" ><b>Name:</b></p>
+
+    <input type="name" placeholder="Enter Username" name ="doctor_name" required>
+
+    <p id=address style="font-size:35px;top:90px"><b>Address:</b></p>
+    <input type="address" placeholder="Enter Address" name="doctor_address" required >
 
 
 
- <form action= "{% url 'doctor' %}" method = "POST">{% csrf_token %}
-  <div class="container">
-    <p id="name" ><b>Name</b></p>
-    <input type="name" placeholder="Enter Username" name="doctor_name" required>
-
-    <p id=address><b>Address</b></p>
-    <input type="address" placeholder="Enter Password" name="doctor_address" required>
+    <p id=pnumber style="font-size:35px;top:34px"><b>Phone Number: </b></p>
+    <input type="phone_number" placeholder="Enter phone number" name="doctor_number" style="margin-left:110px;" required>
 
 
+    <p id=qualification style="font-size:35px;margin-left:300px;"><b>Qualifications</b></p>
+    <input type="qualific" placeholder="Enter Qualifications " name="qualification" required style="font-size:35px;margin-left:550px;">
 
-    <p id=pnumber><b>Phone Number</b></p>
-    <input type="phone_number" placeholder="Enter phone number" name="doctor_number" required>
-
-    <p id=qualification><b>Qualifications</b></p>
-    <input type="qualific" placeholder="Enter Qualifications " name="qualification" required>
-
-    <p id=gender1><b>Gender</b></p>
+    <p id=gender1 style="font-size:35px;top:-20px"><b>Gender:</b></p>
 
     <div class="gender">
       <input type="radio" name="doctor_gender" value="M" checked>Male
@@ -240,17 +225,17 @@ span.psw {
     </div>
 
 
-    <p id=bday><b>Birthday</b></p>
+    <p id=bday style="font-size:35px;top:-55px"><b>Birthday:</b></p>
 
     <div class="birthday">
     <input type="date" name="doctor_bdate">
     </div>
 
-    <p id="username" ><b>Username</b></p>
-    <input type="uname" placeholder="Enter Username" name="doctor_username" required>
+    <p id="username" style="font-size:35px;top:-75px"><b>Username:</b></p>
+    <input type="uname" placeholder="Enter Username" name ="doctor_username" style="margin-left:65px;" required>
 
-    <p id="password" ><b>Password</b></p>
-    <input type="pword" placeholder="Enter Password" name="doctor_pass" required>
+    <p id="password" style="font-size:35px; top:-115px;"> <b>Password:</b></p>
+    <input type="pword" placeholder="Enter Password" name ="doctor_pass" style="margin-left:65px;" required>
 
     <button type="submit">Create Account</button>
 

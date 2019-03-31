@@ -7,9 +7,9 @@
 </head>
 <body>
 <div class="p-3 mb-2 bg-primary text-white" align="center">
-<p style="color:white;font-size:40px;font-weight: bold;">Update Patient Data</p>
+<p style="color:white;font-size:40px;font-weight: bold;">Add new blood data</p>
 </div>
- <form method = "post" enctype="multipart/form-data"> 
+ <form method = "POST" action= "{% url 'blood' %}" enctype="multipart/form-data">{% csrf_token %}
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -27,19 +27,20 @@
             {% endfor %}
            </select>
           </th>
-          <th>  
+          <th>
             <select name = "doctor_name">
                 <option  value={{ doctor_name }}>{{ doctor_name }}</option>
              </select>
           </th>
 
-          <td><input type = "file" name="Blood_Img" required></td>
+          <td><input type = "file" name="Report_Img" required></td>
           <td><input type="date"  name="date" required></td>
     </tr>
   </tbody>
 </table>
 <div class="text-center">
-      <button type="Submit" class="btn btn-dark">Submit</button>
+<button type="Submit" class="btn btn-dark">Submit</button>
 </div>
+ </form>
 </body>
 </html>

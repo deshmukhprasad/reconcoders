@@ -9,7 +9,7 @@
 </head>
 <style>
     #btn1{
-    margin-top:400px;
+    margin-top:250px;
 margin-left:230px;
 padding: 10px 40px;
   text-align: center;
@@ -17,7 +17,7 @@ padding: 10px 40px;
     }
 
         #btn2{
-    margin-top:400px;
+    margin-top:250px;
 margin-left:60px;
 padding: 10px 40px;
   text-align: center;
@@ -25,7 +25,7 @@ padding: 10px 40px;
     }
 
         #btn3{
-    margin-top:400px;
+    margin-top:250px;
 margin-left:60px;
 padding: 10px 40px;
   text-align: center;
@@ -35,9 +35,11 @@ padding: 10px 40px;
 <body style="background-color:#4dd2ff;">
 <div class="card" style="width:1400px;height:750px;margin-top:30px;margin-left:120px;">
   <div class="card-body" style="background-color:#001a1a;">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-subtitle mb-2 text-muted" style="font-size:60px;font-color:#fff;">Intro about charts</p>
+    <p class="card-subtitle mb-2 text-muted" style="font-size:40px;font-color:#fff;">Chart1: It shows number of patients affected by a particular disease per month. </p>
+      <br>
+      <p class="card-subtitle mb-2 text-muted" style="font-size:40px;font-color:#fff;">Chart2: It shows patients affected by top most common diseases</p>
+      <br>
+      <p class="card-subtitle mb-2 text-muted" style="font-size:40px;font-color:#fff;">Chart3: It shows medicine usage per region</p>
     <a type="button" class="btn btn-danger" href="{% url 'chart1'%}" id="btn1">Chart1</a>
     <a type="button" class="btn btn-danger" href="{% url 'chart2'%}" id="btn2">Chart2</a>
       <a type="button" class="btn btn-danger" href="{% url 'chart3'%}" id="btn3">Chart3</a>
